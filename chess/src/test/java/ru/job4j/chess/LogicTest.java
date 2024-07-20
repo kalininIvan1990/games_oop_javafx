@@ -20,7 +20,9 @@ public class LogicTest {
                 assertThrows(FigureNotFoundException.class, () -> {
             logic.move(Cell.C1, Cell.H6);
         });
-        assertThat(figureNotFoundException.getMessage()).isEqualTo("Figure not found on the board.");
+        assertThat(figureNotFoundException.getMessage()).
+                isEqualTo("Figure not found on the board.");
+
         BishopBlack bishopBlack = new BishopBlack(Cell.F8);
         Figure rook = new RookBlack(Cell.E7);
         logic.add(bishopBlack);
@@ -31,6 +33,7 @@ public class LogicTest {
         });
         assertThat(occupiedCellException.getMessage()).
                 isEqualTo("Cell E7 is occupied");
+
         ImpossibleMoveException impossibleMoveException =
                 assertThrows(ImpossibleMoveException.class, () -> {
             logic.move(Cell.F8, Cell.D8);
